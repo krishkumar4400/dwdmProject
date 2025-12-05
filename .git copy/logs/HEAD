@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000 1447638d2cb1e33a248ed9e1b3554f4ebb81af74 krishkumar4400 <krishkumarbgp2022@gmail.com> 1763728381 +0530	commit (initial): first commit
+1447638d2cb1e33a248ed9e1b3554f4ebb81af74 0000000000000000000000000000000000000000 krishkumar4400 <krishkumarbgp2022@gmail.com> 1763728449 +0530	Branch: renamed refs/heads/master to refs/heads/main
+0000000000000000000000000000000000000000 1447638d2cb1e33a248ed9e1b3554f4ebb81af74 krishkumar4400 <krishkumarbgp2022@gmail.com> 1763728449 +0530	Branch: renamed refs/heads/master to refs/heads/main
+1447638d2cb1e33a248ed9e1b3554f4ebb81af74 8db849a96083f8a8598c3ba1057a08f63b40df26 krishkumar4400 <krishkumarbgp2022@gmail.com> 1763728861 +0530	pull: Fast-forward
+8db849a96083f8a8598c3ba1057a08f63b40df26 156e87948c20e53ea23d270caca64718ebdf88bf krishkumar4400 <krishkumarbgp2022@gmail.com> 1763731494 +0530	commit: setup and requirements
+156e87948c20e53ea23d270caca64718ebdf88bf 3ab56aef41f240cbbbdbc797a298e313c652f58b krishkumar4400 <krishkumarbgp2022@gmail.com> 1763744212 +0530	commit: project structure - logging and exception
