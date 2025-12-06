@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Predictor</title>
+
+    <!-- TAILWIND CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- OPTIONAL: BOOTSTRAP FOR SELECT DROPDOWNS (Not required but smoother) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            min-height: 100vh;
+        }
+
+        .animate-btn {
+            transition: 0.3s ease;
+        }
+
+        .animate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+
+<body class="text-white">
+
+    <div class="container mx-auto py-10 px-4">
+
+        <h1 class="text-4xl font-bold text-center mb-8 tracking-wide">
+            🎓 Student Exam Performance Predictor
+        </h1>
+
+        <div class="max-w-2xl mx-auto bg-white text-gray-900 rounded-3xl shadow-2xl p-8">
+
+            <h2 class="text-2xl font-semibold mb-6 text-center">
+                Enter Student Details
+            </h2>
+
+            <form action="{{ url_for('predict_datapoint')}}" method="POST" class="space-y-5">
+
+                <!-- Gender -->
+                <div>
+                    <label class="block font-medium mb-1">Gender</label>
+                    <select name="gender" required class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400">
+                        <option disabled selected>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <!-- Ethnicity -->
+                <div>
+                    <label class="block font-medium mb-1">Race / Ethnicity</label>
+                    <select name="ethnicity" required class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400">
+                        <option disabled selected>Select Ethnicity</option>
+                        <option value="group A">Group A</option>
+                        <option value="group B">Group B</option>
+                        <option value="group C">Group C</option>
+                        <option value="group D">Group D</option>
+                        <option value="group E">Group E</option>
+                    </select>
+                </div>
+
+                <!-- Parental Education -->
+                <div>
+                    <label class="block font-medium mb-1">Parental Level of Education</label>
+                    <select name="parental_level_of_education" required class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400">
+                        <option disabled selected>Select Parent Education</option>
+                        <option value="associate's degree">Associate's Degree</option>
+                        <option value="bachelor's degree">Bachelor's Degree</option>
+                        <option value="high school">High School</option>
+                        <option value="master's degree">Master's Degree</option>
+                        <option value="some college">Some College</option>
+                        <option value="some high school">Some High School</option>
+                    </select>
+                </div>
+
+                <!-- Lunch -->
+                <div>
+                    <label class="block font-medium mb-1">Lunch Type</label>
+                    <select name="lunch" required class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400">
+                        <option disabled selected>Select Lunch Type</option>
+                        <option value="standard">Standard</option>
+                        <option value="free/reduced">Free / Reduced</option>
+                    </select>
+                </div>
+
+                <!-- Test Prep Course -->
+                <div>
+                    <label class="block font-medium mb-1">Test Preparation Course</label>
+                    <select name="test_preparation_course" required class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400">
+                        <option disabled selected>Select Course Status</option>
+                        <option value="none">None</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+
+                <!-- Reading Score -->
+                <div>
+                    <label class="block font-medium mb-1">Reading Score (0–100)</label>
+                    <input type="number" name="reading_score" min="0" max="100"
+                           class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400"
+                           placeholder="Enter reading score">
+                </div>
+
+                <!-- Writing Score -->
+                <div>
+                    <label class="block font-medium mb-1">Writing Score (0–100)</label>
+                    <input type="number" name="writing_score" min="0" max="100"
+                           class="w-full p-3 rounded-lg border focus:ring-2 focus:ring-indigo-400"
+                           placeholder="Enter writing score">
+                </div>
+
+                <!-- Submit -->
+                <button class="animate-btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl text-lg">
+                    Predict Maths Score
+                </button>
+
+            </form>
+
+            <!-- Result Box -->
+            {% if results %}
+            <div class="mt-6 bg-indigo-100 text-indigo-900 p-5 rounded-xl text-center text-xl font-semibold shadow">
+                🎯 Predicted Maths Score: <span class="font-bold">{{ results }}</span>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+
+</body>
+</html>
